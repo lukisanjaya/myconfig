@@ -4,7 +4,7 @@ alias nginx_restart="sudo nginx -s stop && sudo nginx"
 alias nginx_servers="cd /usr/local/etc/nginx/servers"
 alias nginx_list="ll /usr/local/etc/nginx/servers"
 
-function nginx_add() {
+function nginx.add() {
     wget https://raw.githubusercontent.com/lukisanjaya/myconfig/master/osx/nginx/nginx-template.conf -O /usr/local/etc/nginx/servers/$1.conf
     sed -i '' "s:{{host}}:$1:" /usr/local/etc/nginx/servers/$1.conf
 
@@ -36,6 +36,6 @@ function _nginx_addssl() {
     sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /usr/local/etc/nginx/ssl/$1.crt
 }
 
-function _nginx_edit() {
+function nginx.edit() {
     code /usr/local/etc/nginx/servers/$1
 }

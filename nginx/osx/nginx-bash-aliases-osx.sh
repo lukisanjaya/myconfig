@@ -5,7 +5,7 @@ alias nginx_servers="cd /usr/local/etc/nginx/servers"
 alias nginx_list="ll /usr/local/etc/nginx/servers"
 
 function nginx_add() {
-    wget https://raw.githubusercontent.com/lukisanjaya/myconfig/master/nginx-template-osx.conf -O /usr/local/etc/nginx/servers/$1.conf
+    wget https://raw.githubusercontent.com/lukisanjaya/myconfig/master/nginx/osx/nginx-template-osx.conf -O /usr/local/etc/nginx/servers/$1.conf
     sed -i '' "s:{{host}}:$1:" /usr/local/etc/nginx/servers/$1.conf
 
     if [ "$2" ]; then
